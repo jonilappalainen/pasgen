@@ -8,16 +8,16 @@ GOTEST=$(GO) test
 BINPATH=main
 
 makedir:
-	@if [ ! -d $(BUILDPATH)/bin ] ; then mkdir -p $(BUILDPATH)/bin ; fi
+	@if [ ! -d $(BUILDPATH)/bin ] ; then mkdir -p $(BUILDPATH)/.bin ; fi
 
 build: makedir
-	@$(GOBUILD) -o bin
+	@$(GOBUILD) -o .bin
 
 clean:
-	@rm -rf $(BUILDPATH)/bin
+	@rm -rf $(BUILDPATH)/.bin
 
 run: build
-	@$(BUILDPATH)/bin/pasgen
+	@$(BUILDPATH)/.bin/pasgen
 
 test: clean build
 	@$(GOTEST) -v
