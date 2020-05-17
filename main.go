@@ -4,19 +4,24 @@ import (
     "fmt"
     "math/rand"
     "time"
+    "strings"
 )
+
+func GeneratePassword(passwordLength int) string {
+    rand.Seed(time.Now().UnixNano())
+    allowedChars := strings.Split(
+        "@!#¤%€+-0123456789abcdefghijklmnopqrstuvxyzåäöABCDEFGHIJKLMNOPQRSTUVXYZÅÄÖ", "")
+    p := ""
+    for j:=0; j<passwordLength;j++ {
+        p += allowedChars[rand.Intn(len(allowedChars))]
+    }
+    return p
+}
 
 func main() {
     listLength := 10
     passwordLength := 10
-
-    rand.Seed(time.Now().UnixNano())
-
     for i:=0; i<listLength;i++ {
-        p := ""
-        for j:=0; j<passwordLength;j++ {
-            p += fmt.Sprintf("%x", rand.Intn(100))
-        }
-        fmt.Printf("%s\n", p)
+        fmt.Printf("%s\n", GeneratePassword(passwordLength))
     }
 }
