@@ -3,6 +3,7 @@ GO=$(shell which go)
 GOBUILD=$(GO) build
 GOCLEAN=$(GO) clean
 GOGET=$(GO) get
+GOTEST=$(GO) test
 
 BINPATH=main
 
@@ -17,5 +18,11 @@ clean:
 
 run: build
 	@$(BUILDPATH)/bin/pasgen
+
+test: clean build
+	@$(GOTEST) -v
+
+coverage: test
+	@$(GOTEST) -cover
 
 all: build

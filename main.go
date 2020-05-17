@@ -1,10 +1,12 @@
 package main
 
 import (
+    "os"
     "fmt"
     "math/rand"
     "time"
     "strings"
+    "strconv"
 )
 
 func GeneratePassword(passwordLength int) string {
@@ -18,9 +20,19 @@ func GeneratePassword(passwordLength int) string {
     return p
 }
 
+func GetEnv(key string) string {
+  return os.Getenv(key)
+}
+
+func GetEnvAsInteger(key string) int {
+    i, _ := strconv.Atoi(GetEnv(key))
+    return i
+}
+
 func main() {
-    listLength := 10
-    passwordLength := 10
+    listLength := GetEnvAsInteger("PASSWORD_COUNT")
+    passwordLength := GetEnvAsInteger("PASSWORD_LENGTH")
+
     for i:=0; i<listLength;i++ {
         fmt.Printf("%s\n", GeneratePassword(passwordLength))
     }
