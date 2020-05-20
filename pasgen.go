@@ -1,8 +1,8 @@
-package main
+package pasgen
 
 import (
     "os"
-    "fmt"
+//     "fmt"
     "math/rand"
     "time"
     "strings"
@@ -29,11 +29,11 @@ func GetEnvAsInteger(key string) int {
     return i
 }
 
-func main() {
-    listLength := GetEnvAsInteger("PASSWORD_COUNT")
-    passwordLength := GetEnvAsInteger("PASSWORD_LENGTH")
-
-    for i:=0; i<listLength;i++ {
-        fmt.Printf("%s\n", GeneratePassword(passwordLength))
-    }
-}
+// func main() {
+//     listLength := GetEnvAsInteger("PASSWORD_COUNT")
+//     passwordLength := GetEnvAsInteger("PASSWORD_LENGTH")
+//
+//     for i:=0; i<listLength;i++ {
+//         fmt.Printf("%s\n", GeneratePassword(passwordLength))
+//     }
+// }

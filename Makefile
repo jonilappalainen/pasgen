@@ -7,21 +7,15 @@ GOTEST=$(GO) test
 
 BINPATH=main
 
-makedir:
-	@if [ ! -d $(BUILDPATH)/bin ] ; then mkdir -p $(BUILDPATH)/.bin ; fi
+.PHONY:build
+build:
+	@$(GOBUILD)
 
-build: makedir
-	@$(GOBUILD) -o .bin
-
-clean:
-	@rm -rf $(BUILDPATH)/.bin
-
-run: build
-	@$(BUILDPATH)/.bin/pasgen
-
+.PHONY:test
 test: clean build
 	@$(GOTEST) -v
 
+.PHONY:coverage
 coverage: test
 	@$(GOTEST) -cover
 
