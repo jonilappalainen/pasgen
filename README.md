@@ -2,10 +2,17 @@
 Generates randomised strings (passwords).
 
 ## usage
-`make run PASSWORD_COUNT=10 PASSWORD_LENGTH=24`
+```
+import ("github.com/jonilappalainen/pasgen")
+
+func main() {
+    pasgen.GeneratePassword(12)
+}
+```
 
 ### run tests
 `make test`
 
+### show coverage
 `make coverage`
 
