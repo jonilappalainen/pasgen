@@ -1,5 +1,5 @@
 # pasgen
-Generates randomised strings (passwords).
+Generates randomised strings
 
 ## usage
 ```
